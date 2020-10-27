@@ -1,0 +1,63 @@
+   <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  {% if user.is_authenticated %}
+  <body>
+
+   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+
+      <h5 class="my-0 mr-md-auto font-weight-normal">Mysite</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+
+          <p>Hi {{ user.username }}!</p>
+          <p><a href="{% url 'logout' %}">Log out</a></p>
+          <a class="p-2 text-blue" href="{% url 'geo' %}">geolocation</a>
+          <a class="p-2 text-blue" href="{% url 'about' %}">About us</a>
+
+  </div>
+
+  <div class="container">
+
+    {{distance}}
+
+      <hr>
+
+      <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">confirm</button>
+      </form>
+
+  </div>
+
+  <div>
+   <map>
+     {{ map|safe }}
+   </map>
+  </div>
+
+<!--    <div class="container">
+      <h1>Main page</h1>
+      {% for el in tasks %}
+      <div class="alert alert-warning mt-2">
+        <h3>{{ el.title }}</h3>
+        <p>{{ el.t }}</p>
+        {% endfor %}
+      </div>
+    </div>      -->
+
+    {% else %}
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+
+    <h3 class="my-0 mr-md-auto font-weight-normal">Please, log in.</h3>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-blue" href="{% url 'about' %}">About us</a>
+    <p><a href="{% url 'login' %}">Log in</a></p>
+
+  </body>
+  {% endif %}
+</html>
