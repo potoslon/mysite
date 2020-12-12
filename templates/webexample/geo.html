@@ -6,20 +6,38 @@
            <script type="text/javascript">
 
 var x = document.getElementById("demo");
+
 function getLocation() {
+
        if (navigator.geolocation) {
-           return navigator.geolocation.getCurrentPosition(showPosition);
+
+         var options = {
+           enableHighAccuracy: true,
+           timeout: 15000,
+           maximumAge: 15000
+         };
+        //navigator.geolocation.getCurrentPosition(showPosition, posFail, options);
+
+        return navigator.geolocation.getCurrentPosition(showPosition, posFail, options);
+
        } else {
-           return "Geolocation is not supported by this browser.";
+
        }
 }
 
 
 
 function showPosition(position) {
+
        x.innerHTML = "Latitude: " + position.coords.latitude +
        "<br>Longitude: " + position.coords.longitude;
+     }
+
+
+function posFail(err){
+  let error = 1;
 }
+
            </script>
        </head>
        <body>
