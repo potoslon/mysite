@@ -4,6 +4,19 @@ class Measurement(models.Model):
     location = models.CharField(max_length=200)
     destination = models.CharField(max_length=200)
     distance = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return f"Distance from {self.location} to {self.destination} is {self.distance} m"
+    cafes = models.BooleanField("cafes", default=False)
+    bars = models.BooleanField("bars", default=False)
+    fast_food = models.BooleanField("fast_food", default=False)
+    pharmacy = models.BooleanField("pharmacy", default=False)
+    fountain = models.BooleanField("fountain", default=False)
+    bicycle_rental = models.BooleanField("bicycle_rental", default=False)
+    ice_cream = models.BooleanField("ice_cream", default=False)
+    clock = models.BooleanField("clock", default=False)
+    bureau_de_change = models.BooleanField("bureau_de_change", default=False)
+    historic = models.BooleanField("historic", default=False)
+    supermamrket = models.BooleanField("supermamrket", default=False)
+    clothes = models.BooleanField("clothes", default=False)
+    bakery = models.BooleanField("bakery", default=False)
+    beauty = models.BooleanField("beauty", default=False)
+    kiosk = models.BooleanField("kiosk", default=False)
+    florist = models.BooleanField("florist", default=False)
