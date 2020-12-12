@@ -31,7 +31,7 @@ LOGOUT_REDIRECT_URL = 'home'
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts.apps.AccountsConfig',
+    #'webexample.apps.WebexampleConfig',
     'webexample',
     'django.contrib.admin',
     'django.contrib.auth',
